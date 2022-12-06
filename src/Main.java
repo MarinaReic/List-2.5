@@ -26,7 +26,7 @@ public class Main {
                     add(shoppingList, purchase);
                     break;
                 case 2:
-                    show();
+                    show(shoppingList);
                     break;
                 case 3:
                     delete();
@@ -43,7 +43,13 @@ public class Main {
         System.out.println("Итого в списке покупок: " + shoppingList.size() + "\n");
     }
 
-    public static void show() {}
+    public static void show(List<String> shoppingList) {
+        System.out.println("Список покупок:");
+        for (int i = 0; i < shoppingList.size(); i++) {
+            System.out.println((i + 1) + ". " + shoppingList.get(i));
+        }
+        System.out.println();
+    }
 
     public static void delete() {}
 
