@@ -22,14 +22,17 @@ public class Main {
             switch (input) {
                 case 1:
                     System.out.println("Какую покупку хотите добавить?");
-                    String purchase = scanner.nextLine();
-                    add(shoppingList, purchase);
+                    String purchaseAdd = scanner.nextLine();
+                    add(shoppingList, purchaseAdd);
                     break;
                 case 2:
                     show(shoppingList);
                     break;
                 case 3:
-                    delete();
+                    show(shoppingList);
+                    System.out.println("Какую хотите удалить? Введите номер или название:");
+                    String purchaseRemove = scanner.nextLine();
+                    delete(purchaseRemove, shoppingList);
                     break;
                 case 4:
                     find();
@@ -51,7 +54,20 @@ public class Main {
         System.out.println();
     }
 
-    public static void delete() {}
+    public static void delete(String purchaseRemove, List<String> shoppingList) {
+        try {
+            int numberPurchaseRemove = Integer.parseInt(purchaseRemove) - 1;
+            String removedPurchase = shoppingList.get(numberPurchaseRemove);
+            shoppingList.remove(numberPurchaseRemove);
+            System.out.println("Покупка \"" + removedPurchase + "\" удалена");
+            show(shoppingList);
+        } catch (NumberFormatException e) {
+            shoppingList.remove(purchaseRemove);
+            System.out.println("Покупка \"" + purchaseRemove + "\" удалена");
+            show(shoppingList);
+        }
+    }
 
-    public static void find() {}
+    public static void find() {
+    }
 }
