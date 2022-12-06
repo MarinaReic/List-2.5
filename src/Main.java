@@ -35,7 +35,9 @@ public class Main {
                     delete(purchaseRemove, shoppingList);
                     break;
                 case 4:
-                    find();
+                    System.out.println("Введите текст для поиска:");
+                    String purchaseFind = scanner.nextLine();
+                    find(purchaseFind, shoppingList);
                     break;
             }
         }
@@ -68,6 +70,14 @@ public class Main {
         }
     }
 
-    public static void find() {
+    public static void find(String purchaseFind, List<String> shoppingList) {
+        String purchaseFindLower = purchaseFind.toLowerCase();
+        for (int i = 0; i < shoppingList.size(); i++) {
+            String shoppingListLower = shoppingList.get(i).toLowerCase();
+            if (shoppingListLower.contains(purchaseFindLower)) {
+                System.out.println((i + 1) + ". " + shoppingList.get(i));
+            }
+        }
+        System.out.println();
     }
 }
