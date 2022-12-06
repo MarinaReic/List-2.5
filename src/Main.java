@@ -21,7 +21,9 @@ public class Main {
             }
             switch (input) {
                 case 1:
-                    add();
+                    System.out.println("Какую покупку хотите добавить?");
+                    String purchase = scanner.nextLine();
+                    add(shoppingList, purchase);
                     break;
                 case 2:
                     show();
@@ -36,7 +38,10 @@ public class Main {
         }
     }
 
-    public static void add() {}
+    public static void add(List<String> shoppingList, String purchase) {
+        shoppingList.add(purchase);
+        System.out.println("Итого в списке покупок: " + shoppingList.size() + "\n");
+    }
 
     public static void show() {}
 
